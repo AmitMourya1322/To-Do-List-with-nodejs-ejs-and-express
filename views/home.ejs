@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <form action="/create-task" method="POST">
+    <div class="container">
+        <h1>To do List</h1>
+        <div class="wrapper">
+            <div class="input-wrapper">
+                <label for="Add">Add Task</label>
+                <input type="text" name = "description" placeholder="Enter Description" required>
+            </div>
+            <div class="input-wrapper">
+                <label for="Add">Category</label>
+                <select name="category" required>
+                    <option >Personal</option>
+                    <option >Work</option>
+                    <option >College</option>
+                    <option >Cleaning</option>
+                    <option >Other</option>
+                </select>
+            </div>
+            <div class="input-wrapper">
+                <label for="Add">Date</label>
+                <input type="date" name="date">
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </div>
+    
+</form>
+
+    <h1>Task List</h1>
+    <form action="/delete-task" method="GET">
+        <div class="tas">
+        <table class="table">
+            <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>Task</th>
+                  <th>Category</th>
+                <th>due date</th>
+                </tr>
+              </thead>
+            <% for(let i of task) { %>
+                
+
+<tr>
+
+                   <td> <input type="checkbox" name="<%= i._id %>" ></td>
+                   <td> <p id="task-description"><%= i.description %></td>
+                    <td><p id="task-category"></p>: <%= i.category %></td>
+                    <td><p id="due-date">: <%= i.date %></p></td>
+</tr>
+        
+
+            <% } %>
+                
+    
+
+               
+</table>
+<div  align = "center"><input type="submit" class="btn btn-danger" value="DELETE TASK">
+    </form>
+</div>
+</div>
+    
+</body>
+</html>
