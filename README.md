@@ -6,3 +6,7 @@ A simple nodejs project with to do list it has many features like adding date , 
 
 you can delete multiple items at once
 This whole project is made with nodejs , ejs, express, css
+
+make sure to install mongodb and all packages before running this program 
+use this command in the project directory
+npm install express ejs mongodb mongoose
